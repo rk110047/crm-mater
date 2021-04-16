@@ -1,0 +1,57 @@
+{% extends 'payroll/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>MonthlySalary :&ensp; {{salary.EmpId}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'update_monthsal' salary.id %}">Update MonthlySalary</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'delete_monthsal' salary.id %}">Delete MonthlySalary</a>
+
+		</div>
+	</div>
+
+	{% comment %} <div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{customer.email_id}}</p>
+			<p>Phone: {{customer.contact}}</p>
+		</div>
+	</div> {% endcomment %}
+
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="col-md">
+		<div class="card card-body">
+			<h5>Details</h5>
+			<hr>
+			<p>EmpId               : {{salary.EmpId}}</p>
+			<p>salaryMonth         : {{salary.salaryMonth}}</p>
+            <p>activeDays          : {{salary.activeDays}}</p>
+            <p>workingDays         : {{salary.workingDays}}</p>
+            <p>total Salary Amount : {{salary.total_Salary_Amount}}</p>
+		</div>
+</div>
+
+
+{% endblock %}

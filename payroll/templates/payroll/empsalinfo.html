@@ -1,0 +1,61 @@
+{% extends 'payroll/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>EmpSalary :&ensp; {{package.empId}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'update_empsal' package.id %}">Update EmpSalary</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'delete_empsal' package.id %}">Delete EmpSalary</a>
+
+		</div>
+	</div>
+
+	{% comment %} <div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{customer.email_id}}</p>
+			<p>Phone: {{customer.contact}}</p>
+		</div>
+	</div> {% endcomment %}
+
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="col-md">
+		<div class="card card-body">
+			<h5>Details</h5>
+			<hr>
+			<p>Name                    : {{package.Name}}</p>
+			<p>empId                   : {{package.empId}}</p>
+            <p>packageId               : {{package.packageId}}</p>
+            <p>salary                  : ${{package.salary}}</p>
+            <p>dateOfPayment           : {{package.dateOfPayment}}</p>
+            <p>modeOfPayment           : {{package.modeOfPayment}}</p>
+            <p>unpaid_leaves_allowed   : {{package.unpaid_leaves_allowed}}</p>
+            <p>paid_leaves_allowed     : {{package.paid_leaves_allowed}}</p>
+            <p>comments                : {{package.comments}}</p>
+		</div>
+</div>
+
+
+{% endblock %}

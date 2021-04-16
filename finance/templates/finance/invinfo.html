@@ -1,0 +1,105 @@
+{% extends 'finance/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>INVOICE :&ensp; {{invoice.Invoice_number}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'update_invoice' invoice.id %}">Update Invoice</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'delete_invoice' invoice.id %}">Delete Invoice</a>
+
+		</div>
+	</div>
+
+	{% comment %} <div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{invoice.email_id}}</p>
+			<p>Phone: {{invoice.contact}} </p>
+		</div>
+	</div> {% endcomment %}
+
+</div>
+
+
+<br>
+{% comment %} <div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div> {% endcomment %}
+<br>
+
+<div class="col-md">
+		<div class="card card-body">
+			<h5>Details</h5>
+			<hr>
+			<p>From Company            : {{invoice.from_company}}</p>
+            <p>Customer Name           : {{invoice.customer_name}}</p>
+            <p>Invoice Number          : {{invoice.Invoice_number}}</p>
+            <p>Invoice Date            : {{invoice.Invoice_date}}</p>  
+            <p>Payment Terms           : {{invoice.payment_terms}}</p>   
+		
+            <div class="row">
+                <div class="col-md">
+                    <div class="card card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th>Discount</th>
+                                    <th>Tax</th>
+                                </tr>
+
+                                {% for entry in entries %}
+
+                                <tr>
+                                    <td>{{entry.service}}</td>
+                                    <td>{{entry.description}}</td>
+                                    <td>{{entry.rate}}</td>
+                                    <td>{{entry.Qty}}</td>
+                                    <td>{{entry.Discount}}</td>
+                                    <td>{{entry.Tax}}</td>
+                                    <td><a class="btn btn-sm btn-info" href="{% url 'update_inentry' entry.id %}">Update</a></td>
+                                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_inentry' entry.id %}">Remove</a></td>
+                                
+
+                                </tr>
+                                {% endfor %}
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md">
+                    <a class="btn btn-sm btn-info" href="" >ADD Service</a>
+                </div>  
+                <div class="col-md-4">
+                    <h6>Total: ${{invoice.Total}}</h6>
+                </div>   
+            </div>
+        </div>
+
+</div>
+
+
+{% endblock %}
+
+

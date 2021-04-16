@@ -1,0 +1,40 @@
+
+ {% extends 'finance/main.html' %}
+
+{% block content %}
+
+ <br>
+
+    <div class="row">
+        <div class="col-md-5">
+            <h5>PURCHASE ORDERS:</h5>
+            <hr>
+            <div class="card card-body">
+                <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_po' %}">Add Purchase Order</a>
+                <table class="table table-sm">
+                    <tr>
+                        <th></th>
+                        <th>PO Number</th>
+                        <th>Vendor </th>
+                    </tr>
+
+                    {% for po in pos %}
+                        <tr>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'poinfo' po.id %}">View</a></td>
+                            <td>{{po.PO_Number}}</td>
+                            <td>{{po.vendor_name}}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,56 @@
+
+{% extends 'finance/main.html' %}
+{% load bootstrap %}
+{% block content %}
+
+ <br>
+
+    <div class="row">
+        <div class="col-md-5">
+            <h5>INVOICES:</h5>
+            <hr>
+            <div class="card card-body">
+                <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_invoice' %}">Add Invoice</a>
+                <table class="table table-sm">
+                    <tr>
+                        <th></th>
+                        <th>Invoice Number</th>
+                        <th>Customer Name</th>
+                    </tr>
+
+                    {% for invoice in invoices %}
+                        <tr>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'invinfo' invoice.id %}">View</a></td>
+                            <td>{{invoice.Invoice_number}}</td>
+                            <td>{{invoice.customer_name}}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+       
+        <div class="col">
+            <h6>Search Invoice</h6>
+            <hr>
+            <div class="card card-body">
+                <form method="get">
+                  {{invfilter.form|bootstrap_horizontal}}
+                <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+                <ul>
+                {% for inv in invfilter.qs %}
+                    <li>{{ inv.Invoice_number }} - {{ inv.customer_name }} - {{inv.Invoice_date}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+	    </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+
+

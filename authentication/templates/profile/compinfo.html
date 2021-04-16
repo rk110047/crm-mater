@@ -1,0 +1,60 @@
+{% extends 'profile/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Company :&ensp; {{company.company_Name}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Company</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Company</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{company.company_EmailId}}</p>
+			<p>Phone: {{company.company_Phone}} </p>
+		</div>
+	</div>
+
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="col-md">
+		<div class="card card-body">
+			<h5>Details</h5>
+			<hr>
+			<p>company_Name  : {{company.company_Name}}</p>
+			<p>company_Address1   : {{company.company_Address1}}</p>
+            <p>company_Address2     : {{company.company_Address2}}</p>
+            <p>city  : {{company.city}}</p>
+            <p>zip_code   : {{company.zip_code}}</p>
+            <p>country   : {{company.country}}</p>
+            <p>company_Phone        : {{company.company_Phone}}</p>
+            <p>company_EmailId       : {{company.company_EmailId}}</p>
+		</div>
+</div>
+
+
+{% endblock %}
